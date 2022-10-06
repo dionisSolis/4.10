@@ -1,0 +1,59 @@
+using System;
+using System.Collections;
+
+namespace maximum
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> array = new List<int> { };
+            Random random = new Random();
+            int lengthOfArray;
+            int countOfMoving;
+            int firstDigitOfArray;
+
+            Console.Write("Введите желаемую длину массива: ");
+            lengthOfArray = int.Parse(Console.ReadLine());
+            Console.Write("\nМассив: ");
+
+            for (int i = 0; i < lengthOfArray; i++)
+            {
+                array.Add(random.Next(0, 11));
+                Console.Write($"{array[i]} ");
+            }
+
+            Console.Write("\n\nВведите число сдвига массива: ");
+            countOfMoving = int.Parse(Console.ReadLine());
+
+            while (countOfMoving > 0)
+            {
+                firstDigitOfArray = array[0];
+
+                for (int i = 0; i < lengthOfArray; i++)
+                {
+
+                    if (i + 1 > lengthOfArray - 1)
+                    {
+                        array[i] = firstDigitOfArray;
+                    }
+                    else
+                    {
+                        array[i] = array[i + 1];
+                    }
+                }
+
+                countOfMoving -= 1;
+            }
+
+            Console.Write("\nМассив после сдвига: ");
+
+            for (int i = 0; i < lengthOfArray; i++)
+            {
+                Console.Write($"{array[i]} ");
+            }
+
+            Console.Read();
+        }
+    }
+}
