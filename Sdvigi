@@ -32,7 +32,6 @@ namespace maximum
 
                 for (int i = 0; i < lengthOfArray; i++)
                 {
-
                     if (i + 1 > lengthOfArray - 1)
                     {
                         array[i] = firstDigitOfArray;
